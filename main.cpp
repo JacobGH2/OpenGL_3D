@@ -6,10 +6,10 @@
 //glutMainLoop never return;
 int main(int argc, char** argv){
     glutInit(&argc,argv);
-    glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB);
-    glutInitWindowSize(400,400);
+    glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB|GLUT_DEPTH);
+    glutInitWindowSize(800, 600);
     glutInitWindowPosition(100,100);
-    glutCreateWindow("Assign-III Sample Code");
+    glutCreateWindow("Assignment 3");
     
     setup();
         
@@ -18,6 +18,7 @@ int main(int argc, char** argv){
      glutDisplayFunc(display);
      glutMouseFunc(mouse);
      glutMotionFunc(motion);
+     glutKeyboardFunc(processKeys);
      
      glutSpecialFunc(specialKey); //register a special keyboard function.
     //Creates Menu on Right Click

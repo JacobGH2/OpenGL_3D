@@ -50,6 +50,41 @@ void CreateMenu(void){
 }
 
 
+void processKeys(unsigned char key, int x, int y) {
+    switch (key) {
+        case 'f':
+            exit(0);
+            break;
+        case 't':
+            incThetaAll();
+            break;
+        case 'r':
+            decThetaAll();
+            break;
+        case 'a':
+            MoveLeft();
+            break;
+        case 'd':
+            MoveRight();
+            break;
+        case 'w':
+            MoveIn();
+            break;
+        case 's':
+            MoveOut();
+            break;
+        case 'k':
+            MoveUp();
+            break;
+        case 'j':
+            MoveDown();
+            break;
+            
+    }
+    glutPostRedisplay();
+}
+
+
 void MenuItemClicked(int Value){
 	switch(Value) 
 	{

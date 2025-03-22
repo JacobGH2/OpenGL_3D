@@ -8,9 +8,11 @@ SOURCES=main.cpp menu.cpp display.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=project 
 
+all: $(EXECUTABLE)
+	./$(EXECUTABLE)
+	
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $^ -o $@ $(EX_LDFLAGS) $(INSTALLED_DEPS)
-	./$(EXECUTABLE)
 
 main.o: main.cpp menu.h display.h util.h
 	$(CC) $(CFLAGS) $< $(LDFLAGS) $(INSTALLED_DEPS)
