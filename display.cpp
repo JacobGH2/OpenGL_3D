@@ -8,13 +8,12 @@ GLsizei width, height;
 double m_xtheta=0;
 double m_ytheta=0;
 double m_ztheta=0;
-double m_slide=40;
 
 double theta_all = 0;
 
 double tr_lr = 0;
 double tr_ud = 0;
-double tr_io = 0;
+double tr_io = 40;
 
 void setup()
 {
@@ -51,7 +50,7 @@ void display(){
    {
      
       projection(width/2.0, height/2.0, 1);
-      gluLookAt(0, 0, m_slide, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0); 
+      gluLookAt(tr_lr, tr_ud, tr_io, tr_lr, tr_ud, 0, 0.0, 1.0, 0.0); 
      // glClear(GL_DEPTH_BUFFER_BIT|GL_COLOR_BUFFER_BIT );
       glPushMatrix();
       glRotatef(m_xtheta, 1,0,0);
@@ -294,10 +293,10 @@ void YawDown(float n){
   if(m_xtheta < -360) m_xtheta=360;
 }
 void SlideUp(float n){
-  m_slide+=n;
+  tr_io+=n;
 }
 void SlideDown(float n ){
-  m_slide-=n;
+  tr_io-=n;
 }
 void incThetaAll() {
     theta_all += 10;
@@ -307,9 +306,9 @@ void decThetaAll() {
     theta_all -= 10;
     if (theta_all < 0) theta_all = 350;
 }
-void MoveLeft() {tr_lr += 5;}
-void MoveRight() {tr_lr -= 5;}
-void MoveUp() {tr_ud += 5;}
-void MoveDown() {tr_ud -= 5;}
-void MoveIn() {tr_io += 5;} // change if needed
-void MoveOut() {tr_io -= 5;}
+void MoveLeft() {tr_lr -= 5;}
+void MoveRight() {tr_lr += 5;}
+void MoveUp() {tr_ud -= 5;}
+void MoveDown() {tr_ud += 5;}
+void MoveIn() {tr_io -= 5;}
+void MoveOut() {tr_io += 5;}
